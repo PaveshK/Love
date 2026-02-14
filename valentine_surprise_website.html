@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Sneha ❤️</title>
+<style>
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:black;
+color:white;
+overflow-x:hidden;
+}
+
+/* Cinematic intro */
+#intro{
+position:fixed;
+top:0;left:0;right:0;bottom:0;
+background:black;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+text-align:center;
+padding:20px;
+animation:fadeIn 2s;
+}
+#intro h1{font-size:2.2em;letter-spacing:2px;}
+
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+button{
+background:#ff4b6e;
+border:none;
+color:white;
+padding:14px 26px;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+}
+button:hover{background:#ff2f57;}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+text-align:center;
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
+border-radius:20px;
+padding:22px;
+margin:20px 0;
+box-shadow:0 8px 25px rgba(0,0,0,0.6);
+}
+
+/* Slideshow cinematic */
+.slideshow{
+position:relative;
+max-width:100%;
+}
+.slide{
+display:none;
+width:100%;
+border-radius:20px;
+animation:fade 2s;
+}
+
+@keyframes fade{from{opacity:0.4;}to{opacity:1;}}
+
+/* floating hearts */
+.heart{
+position:fixed;
+font-size:22px;
+animation:float 4s linear forwards;
+}
+@keyframes float{
+0%{transform:translateY(0) scale(1);opacity:1;}
+100%{transform:translateY(-600px) scale(1.8);opacity:0;}
+}
+
+footer{margin:40px 0;color:#ddd;font-size:0.9em;}
+</style>
+</head>
+<body>
+
+<div id="intro">
+<h1>Sneha ❤️</h1>
+<p>Pavesh created this just for you…</p>
+<button onclick="enterSite()">Enter Our Love Story ❤️</button>
+</div>
+
+<audio id="bgMusic" loop>
+<source src="unna-thaana-paathuka.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<div class="card">
+<h2>🎵 Start Our Song</h2>
+<button onclick="playMusic();hearts()">Click Here Sneha ❤️</button>
+<p>Let memories play…</p>
+</div>
+
+<div class="card">
+<h2>💖 Our Story</h2>
+<p>
+Friends first… Love began on 23 Nov 2020.
+Married on 17 Sept 2023.
+Yes we fought… but we grew stronger.
+Our love restarted deeper, calmer, beautiful.
+</p>
+</div>
+
+<div class="card">
+<h2>🎮 PUBG Love</h2>
+<p>
+From PUBG teammates to life partners.
+You will always be my favourite squad ❤️
+</p>
+</div>
+
+<div class="card">
+<h2>📸 Our Cinematic Memories</h2>
+<div class="slideshow">
+<img class="slide" src="WhatsApp Image 2026-02-14 at 6.02.21 PM.jpeg">
+<img class="slide" src="WhatsApp Image 2026-02-14 at 5.59.39 PM.jpeg">
+<img class="slide" src="WhatsApp Image 2026-02-14 at 5.57.45 PM.jpeg">
+<img class="slide" src="WhatsApp Image 2026-02-14 at 5.56.36 PM.jpeg">
+<img class="slide" src="WhatsApp Image 2026-02-14 at 5.56.01 PM.jpeg">
+<img class="slide" src="WhatsApp Image 2026-02-14 at 5.55.48 PM.jpeg">
+<img class="slide" src="WhatsApp Image 2026-02-14 at 5.54.36 PM.jpeg">
+<img class="slide" src="WhatsApp Image 2026-02-14 at 6.21.05 PM.jpeg">
+<img class="slide" src="WhatsApp Image 2026-02-14 at 6.22.35 PM.jpeg">
+<img class="slide" src="WhatsApp Image 2026-02-14 at 6.22.43 PM.jpeg">
+<img class="slide" src="WhatsApp Image 2026-02-14 at 6.23.39 PM.jpeg">
+</div>
+</div>
+
+<div class="card">
+<h2>💌 Secret Message</h2>
+<button onclick="document.getElementById('secret').style.display='block';hearts()">Open ❤️</button>
+<p id="secret" style="display:none">
+Sneha… I will always choose you.
+Best friend. Wife. Love of my life.
+Happy Valentine’s Day ❤️ Forever yours — Pavesh.
+</p>
+</div>
+
+<footer>Made with ❤️ by Pavesh</footer>
+</div>
+
+<script>
+function enterSite(){
+document.getElementById('intro').style.display='none';
+showSlides();
+}
+
+function playMusic(){
+document.getElementById('bgMusic').play();
+}
+
+let slideIndex=0;
+function showSlides(){
+let slides=document.getElementsByClassName('slide');
+for(let i=0;i<slides.length;i++)slides[i].style.display='none';
+slideIndex++;
+if(slideIndex>slides.length)slideIndex=1;
+slides[slideIndex-1].style.display='block';
+setTimeout(showSlides,3500);
+}
+
+function hearts(){
+for(let i=0;i<25;i++){
+let h=document.createElement('div');
+h.innerHTML='❤️';
+h.className='heart';
+h.style.left=Math.random()*100+'vw';
+h.style.top='70vh';
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),4000);
+}
+}
+</script>
+
+</body>
+</html>
